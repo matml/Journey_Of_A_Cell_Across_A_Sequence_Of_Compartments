@@ -6,18 +6,18 @@ import matplotlib.pyplot as plt
 ''' Function definition '''
 
 def cells_in_genealogy(pSR,pSD,pAD):
-    Delta1 = mu1+nu1+l*pSD-l*pSR
-    Delta2 = mu2+nu2+l*pSD-l*pSR
-    Delta3 = mu3+nu3+l*pSD-l*pSR
+    Delta1 = mu1+nu1+omega*pSD-omega*pSR
+    Delta2 = mu2+nu2+omega*pSD-omega*pSR
+    Delta3 = mu3+nu3+omega*pSD-omega*pSR
     
-    Lambda1 = nu1+l*pAD+2*l*pSD
-    Lambda2 = nu2+l*pAD+2*l*pSD
-    Lambda3 = nu3+l*pAD+2*l*pSD
+    Lambda1 = nu1+omega*pAD+2*omega*pSD
+    Lambda2 = nu2+omega*pAD+2*omega*pSD
+    Lambda3 = nu3+omega*pAD+2*omega*pSD
     
-    m11= Delta1**(-1)*(2*l*pSR+l*pAD)
-    m12= Delta1**(-1)*(Delta2**(-1)*Lambda1*(2*l*pSR+l*pAD)+l*pAD+2*l*pSD)
-    m13= Delta1**(-1)*Delta2**(-1)*Lambda1*(2*l*pSD+l*pAD+Lambda2*Delta3**(-1)*(2*l*pSR+l*pAD))
-    m14= Delta1**(-1)*Delta2**(-1)*Delta3**(-1)*Lambda1*Lambda2*(2*l*pSD+l*pAD)
+    m11= Delta1**(-1)*(2*omega*pSR+omega*pAD)
+    m12= Delta1**(-1)*(Delta2**(-1)*Lambda1*(2*omega*pSR+omega*pAD)+omega*pAD+2*omega*pSD)
+    m13= Delta1**(-1)*Delta2**(-1)*Lambda1*(2*omega*pSD+omega*pAD+Lambda2*Delta3**(-1)*(2*omega*pSR+omega*pAD))
+    m14= Delta1**(-1)*Delta2**(-1)*Delta3**(-1)*Lambda1*Lambda2*(2*omega*pSD+omega*pAD)
 
     return [m11,m12,m13,m14]
 
@@ -31,7 +31,7 @@ nu1=0.5
 nu2=0.5
 nu3=0.5
 
-l=0.9
+omega=0.9
 
 ''' Calculation of the mean number of cells in the genealogy '''
 
